@@ -68,3 +68,116 @@ console.log(up_students)
 const upper_students = students.filter((student) => student.grades > 70 && student.id > 120);
 
 console.log(upper_students);
+
+// ARRAY BICI (snack 3)
+
+const arrayBici = [
+  {
+    nome: 'Rossa',
+    peso : 24
+  },
+  {
+    nome: 'Bianca',
+    peso: 50
+  },
+  {
+    nome: 'Blu',
+    peso: 30
+  },
+  {
+    nome: 'Bianchi',
+    peso : 36
+  },
+  {
+    nome: 'Nera',
+    peso: 18
+  },
+  {
+    nome: 'Granata',
+    peso: 8
+  },
+
+];
+
+
+// definizioni bici lEGGERA 
+let biciLight = arrayBici[0];
+
+for(let i=0; i < arrayBici.length; i++) {
+  if(arrayBici[i].peso < biciLight.peso){
+    biciLight = arrayBici[i];
+  }
+}
+
+console.log(biciLight);
+
+
+// STAMPA IN CONSOLE LA BICI PIù LEGGERA (DESTRUCTORING E TEMPLATE LITERAL)
+
+let {nome, peso} = biciLight;
+
+console.log(`La bici meno pesante è ${nome} e pesa ${peso}`)
+
+
+
+//  (Snack 4) 
+
+function generateRandomNumber(min, max){
+  return Math.floor(Math.random() * (max - min + 1) - min);
+}
+
+const squadre = [
+  { 
+   nome: 'Juventus',
+   punti: 0,
+   falli: 0,
+  
+  },
+  { 
+    nome: 'milan',
+    punti: 0,
+    falli: 0,
+   
+   },
+   { 
+    nome: 'napoli',
+    punti: 0,
+    falli: 0,
+   
+   },
+   { 
+    nome: 'roma',
+    punti: 0,
+    falli: 0,
+   
+   },
+   { 
+    nome: 'genoa',
+    punti: 0,
+    falli: 0,
+   
+   },
+  ];
+
+squadre.forEach((element) =>{
+  element.punti = generateRandomNumber(1,90);
+  element.falli = generateRandomNumber(2,20);
+})
+
+console.log(squadre);
+
+// CONSOLE NOMI E FALLI SUBITI
+
+const newTeams = squadre.map((element) => {
+  const {nome, falli} = element;
+
+  let obj = {
+      nome,
+      falli,
+  }
+
+  return obj;
+
+});
+
+console.log(newTeams);
